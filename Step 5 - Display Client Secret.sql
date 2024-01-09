@@ -1,0 +1,2 @@
+// 5. Display the OAuth Client ID and Secret for Security Integration object DATACLOUD_INTEGRATION
+SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('DATACLOUD_INTEGRATION');
