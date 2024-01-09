@@ -20,10 +20,14 @@ GRANT USAGE ON INTEGRATION DATACLOUD_INTEGRATION TO ROLE sfadmin;
 CREATE USER sfadmin password='salesforce1' default_role = sfadmin must_change_password=false;
 GRANT ROLE SFADMIN TO USER SFADMIN;
 
-// 4. Display & Review Security Integration object configuration
+// 4. Create Warehouse and Assign new User
+CREATE OR REPLACE warehouse myWarehouse WITH WAREHOUSE_SIZE=LARGE;
+GRANT USAGE ON WAREHOUSE myWarehouse TO ROLE sfadmin;
+
+// 5. Display & Review Security Integration object configuration
 DESCRIBE INTEGRATION DATACLOUD_INTEGRATION;
 
-// 5. Display the OAuth Client ID and Secret for Security Integration object DATACLOUD_INTEGRATION
+// 6. Display the OAuth Client ID and Secret for Security Integration object DATACLOUD_INTEGRATION
 SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('DATACLOUD_INTEGRATION');
 
 // ************************************
